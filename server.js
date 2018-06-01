@@ -9,7 +9,7 @@ function start(route, handle) {
 		// response.writeHead(200, {
 		// 	"Content-Type": "text/plain"
 		// });
-		route(handle,pathname，response);
+		route(handle, pathname, response);
 		// response.write(content);
 		// response.end();
 	}
