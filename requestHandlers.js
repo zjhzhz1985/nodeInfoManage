@@ -3,7 +3,7 @@ var exec = require("child_process").exec;
 function start(response) {
 	console.log("Requset handler 'start' was called.");
 
-	exec("ls -lah", function(error， stdout, stderr) {
+	exec("ls -lah", function(error, stdout, stderr) {
 		response.writeHead(200, {
 			"Content-Type": "text/plain"
 		});
