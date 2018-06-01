@@ -8,5 +8,5 @@ function upload (){
 	return "Hello Upload";
 }
 
-export.start = start;
-export.upload = upload;
+exports.start = start;
+exports.upload = upload;
