@@ -30,7 +30,7 @@ function start(response) {
 function upload(response, postData) {
 	console.log("Requset handler 'upload' was called.");
 
-	var form = new formidable.IncomingFrom();
+	var form = new formidable.incomingForm();
 	form.parse(Requset, function(error, fields, files) {
 			fs.renameSync(files.upload.path, "./tmp/test.jpg");
 			response.writeHead(200, {
