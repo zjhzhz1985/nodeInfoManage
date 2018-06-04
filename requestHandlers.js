@@ -32,7 +32,7 @@ function upload(response, postData) {
 
 	var form = new formidable.IncomingFrom();
 	form.parse(Requset,function(error,fields,files)){
-		fs.renameSync(files.upload.path, "./tmp/test.png");
+		fs.renameSync(files.upload.path, "./tmp/test.jpg");
 		response.writeHead(200, {
 		"Content-Type": "text/html;charset=utf-8"
 	});
@@ -44,7 +44,7 @@ function upload(response, postData) {
 
 function show(response, postData) {
 	console.log("Requset handler 'show' was called.");
-	fs.readFile("./tmp/icon-108.jpg", "binary", function(error, file) {
+	fs.readFile("./tmp/test.jpg", "binary", function(error, file) {
 		if (error) {
 			response.writeHead(500, {
 				"Content-Type": "text/plain"
