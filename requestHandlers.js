@@ -36,7 +36,7 @@ function upload(response, postData) {
 
 function show(response, postData) {
 	console.log("Requset handler 'show' was called.");
-	fs.readFile("./tmp/test.jpg", "binary", function(error, file) {
+	fs.readFile("./tmp/icon-108.jpg", "binary", function(error, file) {
 		if (error) {
 			response.writeHead(500, {
 				"Content-Type": "text/plain"
