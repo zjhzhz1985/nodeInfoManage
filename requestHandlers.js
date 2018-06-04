@@ -31,36 +31,36 @@ function upload(response, postData) {
 	console.log("Requset handler 'upload' was called.");
 
 	var form = new formidable.IncomingFrom();
-	form.parse(Requset,function(error,fields,files)){
-		fs.renameSync(files.upload.path, "./tmp/test.jpg");
-		response.writeHead(200, {
-		"Content-Type": "text/html;charset=utf-8"
-	});
-	response.write("received image:<br/>");
-	response.write("<img src='/show' />");
-	response.end();
-	}
-}
-
-function show(response, postData) {
-	console.log("Requset handler 'show' was called.");
-	fs.readFile("./tmp/test.jpg", "binary", function(error, file) {
-		if (error) {
-			response.writeHead(500, {
-				"Content-Type": "text/plain"
-			});
-			response.write(error + "\n");
-			response.end();
-		} else {
+	form.parse(Requset, function(error, fields, files) {
+			fs.renameSync(files.upload.path, "./tmp/test.jpg");
 			response.writeHead(200, {
-				"Content-Type": "image/jpg"
+				"Content-Type": "text/html;charset=utf-8"
 			});
-			response.write(file, "binary");
+			response.write("received image:<br/>");
+			response.write("<img src='/show' />");
 			response.end();
-		}
-	});
-}
+		});
+	}
 
-exports.start = start;
-exports.upload = upload;
-exports.show = show;
+	function show(response, postData) {
+		console.log("Requset handler 'show' was called.");
+		fs.readFile("./tmp/test.jpg", "binary", function(error, file) {
+			if (error) {
+				response.writeHead(500, {
+					"Content-Type": "text/plain"
+				});
+				response.write(error + "\n");
+				response.end();
+			} else {
+				response.writeHead(200, {
+					"Content-Type": "image/jpg"
+				});
+				response.write(file, "binary");
+				response.end();
+			}
+		});
+	}
+
+	exports.start = start;
+	exports.upload = upload;
+	exports.show = show;
