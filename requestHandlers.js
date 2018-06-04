@@ -28,7 +28,7 @@ function start(response, postData) {
 function upload(response, postData) {
 	console.log("Requset handler 'upload' was called.");
 	response.writeHead(200, {
-		"Content-Type": "text/plain;charset:utf-8"
+		"Content-Type": "text/plain;charset=utf-8"
 	});
 	response.write("you've sent:" + querystring.parse(postData).text);
 	response.end();
